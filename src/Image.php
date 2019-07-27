@@ -67,7 +67,7 @@ class Image
      * @param SafeSearchAnnotation $safeSearch
      * @return Image
      */
-    public function setSafeSearchAnnotation(SafeSearchAnnotation $safeSearch): Image
+    public function setSafeSearchAnnotation(?SafeSearchAnnotation $safeSearch): Image
     {
         $this->safeSearchAnnotation = $safeSearch;
         return $this;

@@ -65,7 +65,7 @@ class Fetcher
             $imageAnnotator = new ImageAnnotatorClient(['key' => '']);
             $response = $imageAnnotator->safeSearchDetection($image);
         } catch (ValidationException|ApiException $exception) {
-            throw new ImageFetcherException($exception->getMessage(), $exception->getCode(), $exception);
+            throw new CloudVisionException($exception->getMessage(), $exception->getCode(), $exception);
         }
 
         $result = $response->getSafeSearchAnnotation();

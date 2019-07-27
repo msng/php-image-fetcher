@@ -21,6 +21,23 @@ class SafeSearchAnnotation
         self::RACY => Likelihood::UNKNOWN
     ];
 
+    public function __construct(array $likelihoods = null)
+    {
+        $categories = [
+            self::ADULT,
+            self::SPOOF,
+            self::MEDICAL,
+            self::VIOLENCE,
+            self::RACY,
+        ];
+
+        foreach ($categories as $category) {
+            if (isset($likelihoods[$category])) {
+                $this->likelihoods[$category] = $likelihoods[$category];
+            }
+        }
+    }
+
     /**
      * @param int $adult
      * @return SafeSearchAnnotation

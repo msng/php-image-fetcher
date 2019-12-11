@@ -70,12 +70,19 @@ class Fetcher
 
         $result = $response->getSafeSearchAnnotation();
 
-        $safeSearchAnnotation = (new SafeSearchAnnotation())
-            ->setAdult($result->getAdult())
-            ->setSpoof($result->getSpoof())
-            ->setMedical($result->getMedical())
-            ->setViolence($result->getViolence())
-            ->setRacy($result->getRacy());
+        $safeSearchAnnotation = (new SafeSearchAnnotation());
+
+        /**
+         * In case result is null, $safeSearchAnnotation remains "Likelihood::UNKNOWN"
+         */
+        if ($result) {
+            $safeSearchAnnotation
+                ->setAdult($result->getAdult())
+                ->setSpoof($result->getSpoof())
+                ->setMedical($result->getMedical())
+                ->setViolence($result->getViolence())
+                ->setRacy($result->getRacy());
+        }
 
         return $safeSearchAnnotation;
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta name="description" content="This file is illegal as an XHTML."/>
+  <meta property="og:url" content="https://example.com/"/>
+  <meta property="og:title" content="Example og:title"/>
+  <meta property="og:site_name" content="Example og:site_name"/>
+  <meta property="og:image" content="https://example.com/test.png"/>
+  <meta property="og:description" content="This is og:description."/>
+  <title>Example web site</title>
+</head>
+<body>
+<p>This file is illegal as an XHTML<br>
+    because the `br` element is not closed.</p>
+</body>
+</html>

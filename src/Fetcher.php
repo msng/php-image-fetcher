@@ -89,11 +89,19 @@ class Fetcher
 
     /**
      * @param string $url
+     * @param bool $removeXmlDeclaration If true, removes XML declaration from the page in case the format is illegal and can not be parsed.
      * @return string|null
      */
-    public function getImageUrlFromWebPage(string $url): ?string
+    public function getImageUrlFromWebPage(string $url, bool $removeXmlDeclaration = false): ?string
     {
         $contents = $this->httpClient->getContents($url);
+        $contents = trim($contents);
+
+        if ($removeXmlDeclaration) {
+            $pattern = '/^\<\?xml ([^>]+)\>/';
+            $contents = preg_replace($pattern, '', $contents);
+        }
+
         $crawler = new Crawler($contents);
         $node = $crawler->filterXPath('//meta[@property="og:image"]')->first();
 

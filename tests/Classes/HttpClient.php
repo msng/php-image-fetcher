@@ -7,10 +7,12 @@ use RuntimeException;
 class HttpClient extends \msng\ImageFetcher\HttpClient
 {
     const TEST_HTML = 'https://example.com/';
+    const ILLEGAL_XML = 'https://example.com/illegal-format.xml';
     const TEST_PNG = 'https://example.com/test.png';
 
     private $fileMap = [
         self::TEST_HTML => 'test.html',
+        self::ILLEGAL_XML => 'illegal-format.xml',
         self::TEST_PNG => 'test.png'
     ];
 
@@ -28,3 +30,4 @@ class HttpClient extends \msng\ImageFetcher\HttpClient
         }
     }
 }
+

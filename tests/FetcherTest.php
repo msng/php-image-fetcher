@@ -22,9 +22,27 @@ class FetcherTest extends TestCase
         $this->assertNull($image->getSafeSearchAnnotation());
     }
 
+    public function testGetImageUrlFromWebPage()
+    {
+        $imageUrl = $this->fetcher->getImageUrlFromWebPage(HttpClient::TEST_HTML);
+        $this->assertSame(HttpClient::TEST_PNG, $imageUrl);
+    }
+
+    public function testGetImageUrlFromIllegalXhtmlPage()
+    {
+        // Null is expected because the web page is illegal as XHTML.
+        $imageUrl = $this->fetcher->getImageUrlFromWebPage(HttpClient::ILLEGAL_XML);
+        $this->assertNull($imageUrl);
+
+        // $removeXmlDeclaration = true
+        $imageUrl = $this->fetcher->getImageUrlFromWebPage(HttpClient::ILLEGAL_XML, true);
+        $this->assertSame(HttpClient::TEST_PNG, $imageUrl);
+    }
+
     protected function setUp()
     {
         parent::setUp();
         $this->fetcher = new Fetcher(new HttpClient());
     }
 }
+

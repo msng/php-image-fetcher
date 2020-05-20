@@ -15,6 +15,11 @@ class Image
     private $content;
 
     /**
+     * @var string
+     */
+    private $contentType;
+
+    /**
      * @var SafeSearchAnnotation|null
      */
     private $safeSearchAnnotation;
@@ -70,6 +75,24 @@ class Image
     public function setSafeSearchAnnotation(?SafeSearchAnnotation $safeSearch): Image
     {
         $this->safeSearchAnnotation = $safeSearch;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType(): string
+    {
+        return $this->contentType;
+    }
+
+    /**
+     * @param string $contentType
+     * @return Image
+     */
+    public function setContentType(string $contentType): Image
+    {
+        $this->contentType = $contentType;
         return $this;
     }
 }

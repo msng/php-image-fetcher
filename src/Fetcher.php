@@ -33,11 +33,12 @@ class Fetcher
      */
     public function fetch(string $imageUrl): Image
     {
-        $imageContent = $this->httpClient->getContents($imageUrl);
+        $response = $this->httpClient->get($imageUrl);
 
         $image = (new Image())
             ->setUrl($imageUrl)
-            ->setContent($imageContent);
+            ->setContent($response->getBody()->getContents())
+            ->setContentType($response->getHeaderLine('content-type'));
 
         return $image;
     }

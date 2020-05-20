@@ -18,6 +18,7 @@ class FetcherTest extends TestCase
         $image = $this->fetcher->fetchFromWebPage(HttpClient::TEST_HTML);
 
         $this->assertSame(HttpClient::TEST_PNG, $image->getUrl());
+        $this->assertSame('image/png', $image->getContentType());
         $this->assertSame('b660148ba7416ccde4c91cef5aaced6a', md5($image->getContent()));
         $this->assertNull($image->getSafeSearchAnnotation());
     }

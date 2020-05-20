@@ -9,7 +9,7 @@
         "fabpot/goutte": "^3.2",
         "guzzlehttp/guzzle": "^6.3",
         "google/cloud-vision": "^0.21.0",
-        "msng/values": "^0.2.7"
+        "msng/values": "^0.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0"

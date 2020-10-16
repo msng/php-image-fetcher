@@ -2,8 +2,7 @@
 
 namespace msng\ImageFetcher;
 
-use Google\ApiCore\ApiException;
-use Google\ApiCore\ValidationException;
+use Exception;
 use Google\Cloud\Vision\V1\ImageAnnotatorClient;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -65,7 +64,7 @@ class Fetcher
         try {
             $imageAnnotator = new ImageAnnotatorClient(['key' => '']);
             $response = $imageAnnotator->safeSearchDetection($image);
-        } catch (ValidationException|ApiException $exception) {
+        } catch (Exception $exception) {
             throw new CloudVisionException($exception->getMessage(), $exception->getCode(), $exception);
         }
 

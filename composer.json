@@ -4,15 +4,12 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3|^7.0",
         "google/cloud-vision": "^0.21.0",
         "msng/values": "~1.0",
         "fabpot/goutte": "^4.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -25,5 +22,8 @@
             "name": "msng",
             "email": "ray@msng.info"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
 }

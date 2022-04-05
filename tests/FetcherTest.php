@@ -40,7 +40,7 @@ class FetcherTest extends TestCase
         $this->assertSame(HttpClient::TEST_PNG, $imageUrl);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->fetcher = new Fetcher(new HttpClient());

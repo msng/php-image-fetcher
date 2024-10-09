@@ -12,7 +12,7 @@ class HttpClient extends \msng\ImageFetcher\HttpClient
     const ILLEGAL_XML = 'https://example.com/illegal-format.xml';
     const TEST_PNG = 'https://example.com/test.png';
 
-    private $fileMap = [
+    private array $fileMap = [
         self::TEST_HTML => [
             'file' => 'test.html',
             'contentType' => 'text/html'

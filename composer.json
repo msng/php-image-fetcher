@@ -4,12 +4,12 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.2",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "^6.3|^7.0",
-        "google/cloud-vision": "^0.21.0",
         "msng/values": "~1.0",
-        "fabpot/goutte": "^4.0"
+        "symfony/browser-kit": "^6.4",
+        "google/cloud-vision": "^1.10",
+        "guzzlehttp/guzzle": "^7.9"
     },
     "autoload": {
         "psr-4": {

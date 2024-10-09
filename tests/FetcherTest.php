@@ -8,10 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class FetcherTest extends TestCase
 {
-    /**
-     * @var Fetcher
-     */
-    private $fetcher;
+    private Fetcher $fetcher;
 
     public function testFetchFromWebPage()
     {

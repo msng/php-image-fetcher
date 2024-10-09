@@ -4,92 +4,52 @@ namespace msng\ImageFetcher;
 
 class Image
 {
-    /**
-     * @var string
-     */
-    private $url;
+    private string $url;
 
-    /**
-     * @var string
-     */
-    private $content;
+    private string $content;
 
-    /**
-     * @var string
-     */
-    private $contentType;
+    private string $contentType;
 
-    /**
-     * @var SafeSearchAnnotation|null
-     */
-    private $safeSearchAnnotation;
+    private SafeSearchAnnotation|null $safeSearchAnnotation = null;
 
-    /**
-     * @return string
-     */
     public function getUrl(): string
     {
         return $this->url;
     }
 
-    /**
-     * @param string $url
-     * @return Image
-     */
     public function setUrl(string $url): Image
     {
         $this->url = $url;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    /**
-     * @param string $content
-     * @return Image
-     */
     public function setContent(string $content): Image
     {
         $this->content = $content;
         return $this;
     }
 
-    /**
-     * @return SafeSearchAnnotation|null
-     */
-    public function getSafeSearchAnnotation(): ?SafeSearchAnnotation
+    public function getSafeSearchAnnotation(): SafeSearchAnnotation|null
     {
         return $this->safeSearchAnnotation;
     }
 
-    /**
-     * @param SafeSearchAnnotation $safeSearch
-     * @return Image
-     */
-    public function setSafeSearchAnnotation(?SafeSearchAnnotation $safeSearch): Image
+    public function setSafeSearchAnnotation(SafeSearchAnnotation|null $safeSearch): Image
     {
         $this->safeSearchAnnotation = $safeSearch;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getContentType(): string
     {
         return $this->contentType;
     }
 
-    /**
-     * @param string $contentType
-     * @return Image
-     */
     public function setContentType(string $contentType): Image
     {
         $this->contentType = $contentType;

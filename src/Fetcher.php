@@ -8,16 +8,9 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class Fetcher
 {
-    /**
-     * @var HttpClient
-     */
-    private $httpClient;
+    private HttpClient $httpClient;
 
-    /**
-     * Fetcher constructor.
-     * @param HttpClient|null $httpClient
-     */
-    public function __construct(HttpClient $httpClient = null)
+    public function __construct(HttpClient|null $httpClient = null)
     {
         if ($httpClient) {
             $this->httpClient = $httpClient;
@@ -26,20 +19,14 @@ class Fetcher
         }
     }
 
-    /**
-     * @param string $imageUrl
-     * @return Image
-     */
     public function fetch(string $imageUrl): Image
     {
         $response = $this->httpClient->get($imageUrl);
 
-        $image = (new Image())
+        return (new Image())
             ->setUrl($imageUrl)
             ->setContent($response->getBody()->getContents())
             ->setContentType($response->getHeaderLine('content-type'));
-
-        return $image;
     }
 
     /**
@@ -98,7 +85,7 @@ class Fetcher
         $contents = trim($contents);
 
         if ($removeXmlDeclaration) {
-            $pattern = '/^\<\?xml ([^>]+)\>/';
+            $pattern = '/^<\?xml ([^>]+)>/';
             $contents = preg_replace($pattern, '', $contents);
         }
 
@@ -107,10 +94,8 @@ class Fetcher
 
         if ($node->count() === 0) {
             return null;
-        };
+        }
 
-        $url = $node->attr('content');
-
-        return $url;
+        return $node->attr('content');
     }
 }

@@ -11,10 +11,7 @@ class HttpClient
 {
     const GET = 'get';
 
-    /**
-     * @var GuzzleClientInterface
-     */
-    private $guzzleClient;
+    private GuzzleClientInterface $guzzleClient;
 
     /**
      * @param array $guzzleConfig

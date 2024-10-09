@@ -10,10 +10,7 @@ class SafeSearchAnnotation
     const VIOLENCE = 'violence';
     const RACY = 'racy';
 
-    /**
-     * @var array
-     */
-    private $likelihoods = [
+    private array $likelihoods = [
         self::ADULT => Likelihood::UNKNOWN,
         self::SPOOF => Likelihood::UNKNOWN,
         self::MEDICAL => Likelihood::UNKNOWN,
@@ -49,18 +46,11 @@ class SafeSearchAnnotation
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getAdult(): int
     {
         return $this->likelihoods[self::ADULT];
     }
 
-    /**
-     * @param int $spoof
-     * @return SafeSearchAnnotation
-     */
     public function setSpoof(int $spoof): SafeSearchAnnotation
     {
         $this->likelihoods[self::SPOOF] = $spoof;
@@ -68,18 +58,11 @@ class SafeSearchAnnotation
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getSpoof(): int
     {
         return $this->likelihoods[self::SPOOF];
     }
 
-    /**
-     * @param int $medical
-     * @return SafeSearchAnnotation
-     */
     public function setMedical(int $medical): SafeSearchAnnotation
     {
         $this->likelihoods[self::MEDICAL] = $medical;
@@ -87,18 +70,11 @@ class SafeSearchAnnotation
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getMedical(): int
     {
         return $this->likelihoods[self::MEDICAL];
     }
 
-    /**
-     * @param int $violence
-     * @return SafeSearchAnnotation
-     */
     public function setViolence(int $violence): SafeSearchAnnotation
     {
         $this->likelihoods[self::VIOLENCE] = $violence;
@@ -106,18 +82,11 @@ class SafeSearchAnnotation
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getViolence(): int
     {
         return $this->likelihoods[self::VIOLENCE];
     }
 
-    /**
-     * @param int $racy
-     * @return SafeSearchAnnotation
-     */
     public function setRacy(int $racy): SafeSearchAnnotation
     {
         $this->likelihoods[self::RACY] = $racy;
@@ -125,28 +94,18 @@ class SafeSearchAnnotation
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getRacy(): int
     {
         return $this->likelihoods[self::RACY];
     }
 
-    /**
-     * @return array
-     */
     public function toArray(): array
     {
         return $this->likelihoods;
     }
 
-    /**
-     * @return string
-     */
     public function toJson(): string
     {
         return json_encode($this->likelihoods);
-
     }
 }

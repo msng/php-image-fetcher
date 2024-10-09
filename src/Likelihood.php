@@ -2,9 +2,7 @@
 
 namespace msng\ImageFetcher;
 
-use msng\Values\EnumValue;
-
-class Likelihood extends EnumValue
+class Likelihood
 {
     const UNKNOWN = 0;
     const VERY_UNLIKELY = 1;
